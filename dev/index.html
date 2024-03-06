@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rhodos</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/en">Rhodos</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse justify-content-end gap-2 navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/en">{{NAVBAR.LINK.HOME}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#aboutUs">{{NAVBAR.LINK.ABOUT_US}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#rooms">{{NAVBAR.LINK.ROOMS}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#servicesAndFacilities">{{NAVBAR.LINK.SERVICES_AND_FACILITIES}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">{{NAVBAR.LINK.CONTACT}}</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex gap-2">
+                        <a class="nav-link" href="/en">
+                            <img src="../assets/images/english_lang.webp" alt="english" width="20" height="12">
+                        </a>
+                        <a class="nav-link" href="/el">
+                            <img src="../assets/images/greece_lang.jpeg" alt="english" width="20" height="12">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h3 id="aboutUs">{{ABOUT_US.HEADER}}</h3>
+        </section>
+        <section>
+            <h3 id="rooms">{{ROOMS.HEADER}}</h3>
+        </section>
+        <section>
+            <h3 id="servicesAndFacilities">{{SERVICES_AND_FACILITIES.HEADER}}</h3>
+        </section>
+        <section>
+            <h3 id="contact">{{CONTACT.HEADER}}</h3>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>
