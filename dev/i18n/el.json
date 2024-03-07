@@ -1,12 +1,12 @@
 {
-  "NAVBAR.LINK.HOME": "Home",
-  "NAVBAR.LINK.ABOUT_US": "About Us",
-  "NAVBAR.LINK.ROOMS": "Rooms",
-  "NAVBAR.LINK.SERVICES_AND_FACILITIES": "Services & Facilities",
-  "NAVBAR.LINK.CONTACT": "Contact",
-  "ABOUT_US.HEADER": "About Us",
-  "ABOUT_US.DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi autem commodi culpa dignissimos distinctio dolor ducimus in molestias necessitatibus, neque nesciunt non odit quae quaerat quibusdam sed sint voluptatibus!",
-  "ROOMS.HEADER": "Rooms",
-  "SERVICES_AND_FACILITIES.HEADER": "Services & Facilities",
-  "CONTACT.HEADER": "Contact"
+  "NAVBAR.LINK.HOME": "Σπίτι",
+  "NAVBAR.LINK.ABOUT_US": "Σχετικά με εμάς",
+  "NAVBAR.LINK.ROOMS": "Δωμάτια",
+  "NAVBAR.LINK.SERVICES_AND_FACILITIES": "Υπηρεσίες & Εγκαταστάσεις",
+  "NAVBAR.LINK.CONTACT": "Επικοινωνία",
+  "ABOUT_US.HEADER": "Σχετικά με εμάς",
+  "ABOUT_US.DESCRIPTION": "Είναι πολύ σημαντικό για τον πελάτη να δώσει προσοχή στη διαδικασία της αδειοδότησης. Αλλά κάτι από το πλεονέκτημα του μυαλού, το σφάλμα της πιο άξιας διάκρισης, ο πόνος μας οδηγεί σε προβλήματα και ανάγκες, και δεν ξέρουν ότι δεν μισεί αυτό που αναζητά για κάποιους αλλά ας είναι απολαύσεις!",
+  "ROOMS.HEADER": "Δωμάτια",
+  "SERVICES_AND_FACILITIES.HEADER": "Υπηρεσίες & Εγκαταστάσεις",
+  "CONTACT.HEADER": "Επικοινωνία"
 }
