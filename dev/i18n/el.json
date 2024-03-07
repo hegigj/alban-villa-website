@@ -1,11 +1,12 @@
 {
-  "NAVBAR.LINK.HOME": "Homeee",
-  "NAVBAR.LINK.ABOUT_US": "About Usss",
-  "NAVBAR.LINK.ROOMS": "Roomsss",
-  "NAVBAR.LINK.SERVICES_AND_FACILITIES": "Servicesss & Facilitiesss",
-  "NAVBAR.LINK.CONTACT": "Contacttt",
-  "ABOUT_US.HEADER": "About Usss",
-  "ROOMS.HEADER": "Roomsss",
-  "SERVICES_AND_FACILITIES.HEADER": "Servicesss & Facilitiesss",
-  "CONTACT.HEADER": "Contacttt"
+  "NAVBAR.LINK.HOME": "Home",
+  "NAVBAR.LINK.ABOUT_US": "About Us",
+  "NAVBAR.LINK.ROOMS": "Rooms",
+  "NAVBAR.LINK.SERVICES_AND_FACILITIES": "Services & Facilities",
+  "NAVBAR.LINK.CONTACT": "Contact",
+  "ABOUT_US.HEADER": "About Us",
+  "ABOUT_US.DESCRIPTION": "            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi autem commodi culpa dignissimos distinctio dolor ducimus in molestias necessitatibus, neque nesciunt non odit quae quaerat quibusdam sed sint voluptatibus!",
+  "ROOMS.HEADER": "Rooms",
+  "SERVICES_AND_FACILITIES.HEADER": "Services & Facilities",
+  "CONTACT.HEADER": "Contact"
 }
