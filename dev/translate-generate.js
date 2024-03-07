@@ -13,21 +13,52 @@ if (process.argv.length > 2) {
         translateToLang = defaultLang;
     }
 } else {
-    translateToLang = defaultLang;
+    translateToLang = [...availableLang];
 }
 
 try {
-    translations = getTranslation(translateToLang);
+    if (typeof translateToLang === 'string') {
+        translations = getTranslation(translateToLang);
+    }
+    if (typeof translateToLang === 'object' && translateToLang instanceof Array) {
+        translations = [];
+
+        for (const lang of translateToLang) {
+            translations.push(getTranslation(lang));
+        }
+    }
 } catch (error) {
     console.error(error);
 }
 
-try {
-    const indexHtml = fs.readFileSync('index.html', 'utf8');
-    const translatedIndexHtml = translate(indexHtml, translations);
-    fs.writeFileSync(`../${translateToLang}/index.html`, translatedIndexHtml);
-} catch (error) {
-    console.error(error);
+if (translations) {
+    try {
+        const indexHtml = fs.readFileSync('index.html', 'utf8');
+        let translatedIndexHtml;
+
+        if (translations instanceof Array) {
+            translatedIndexHtml = [];
+
+            for (const translation of translations) {
+                translatedIndexHtml.push(translate(indexHtml, translation));
+            }
+        } else {
+            translatedIndexHtml = translate(indexHtml, translations);
+        }
+
+        if (
+            translatedIndexHtml instanceof Array &&
+            translateToLang instanceof Array
+        ) {
+            for (let i = 0; i < translatedIndexHtml.length; i++) {
+                fs.writeFileSync(`../${translateToLang[i]}/index.html`, translatedIndexHtml[i]);
+            }
+        } else {
+            fs.writeFileSync(`../${translateToLang}/index.html`, translatedIndexHtml);
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 function getTranslation(lang) {

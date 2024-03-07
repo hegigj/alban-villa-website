@@ -2,6 +2,7 @@
   "name": "alban-villa-website",
   "version": "1.0.0",
   "scripts": {
+    "translate": "node translate-generate.js",
     "translate:en": "node translate-generate.js en",
     "translate:el": "node translate-generate.js el"
   },
