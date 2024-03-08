@@ -29,8 +29,10 @@
                 <label>{{ROOMS.LABELS.SERVICES}}</label>
                 <div class="row gy-2">
                     {{WEB_DATA_ROOMS.services}}
+                    <div class="col-6 d-flex align-items-center">
+                        <a href="{{servicesUrl}}">{{ROOMS.LABELS.MORE_SERVICES}}</a>
+                    </div>
                 </div>
-                <a href="{{servicesUrl}}">{{ROOMS.LABELS.MORE_SERVICES}}</a>
             </section>
             <a href="{{bookNowUrl}}" class="btn btn-primary" role="button">{{ROOMS.BUTTONS.BOOK_NOW}}</a>
         </div>

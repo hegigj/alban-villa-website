@@ -79,15 +79,30 @@
             <h3 id="aboutUs">{{ABOUT_US.HEADER}}</h3>
             <p>{{ABOUT_US.DESCRIPTION}}</p>
         </section>
+        <hr>
         <section class="p-3">
             <h3 id="rooms">{{ROOMS.HEADER}}</h3>
             <div class="row">
                 {{WEB_DATA_ROOMS}}
             </div>
         </section>
+        <hr>
         <section class="p-3">
-            <h3 id="servicesAndFacilities">{{SERVICES_AND_FACILITIES.HEADER}}</h3>
+            <h3 id="servicesAndFacilities" class="mb-4">{{SERVICES_AND_FACILITIES.HEADER}}</h3>
+            <div class="row">
+                <article class="col-6 border border-start-0 border-top-0 border-bottom-0">
+                    <h4>{{SERVICES_AND_FACILITIES.LABELS.SERVICES}}</h4>
+                    {{WEB_DATA_SERVICES}}
+                </article>
+                <article class="col-6 border border-top-0 border-bottom-0 border-end-0">
+                    <h4>{{SERVICES_AND_FACILITIES.LABELS.FACILITIES}}</h4>
+                    <div class="row gy-2">
+                        {{WEB_DATA_FACILITIES}}
+                    </div>
+                </article>
+            </div>
         </section>
+        <hr>
         <section class="p-3">
             <h3 id="contact">{{CONTACT.HEADER}}</h3>
         </section>

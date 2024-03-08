@@ -9,9 +9,25 @@
         {
           "icon": "ac_unit",
           "label": "AC"
+        },
+        {
+          "icon": "hot_tub",
+          "label": "Jacuzzi"
+        },
+        {
+          "icon": "microwave",
+          "label": "Microwave"
+        },
+        {
+          "icon": "smoke_free",
+          "label": "No Smoking"
+        },
+        {
+          "icon": "crib",
+          "label": "Baby Crib"
         }
       ],
-      "servicesUrl": "/alban-villa-website/en#servicesAndFacilities",
+      "servicesUrl": "/alban-villa-website/el#servicesAndFacilitiesRoom1",
       "roomSrc": ["front.jpeg", "bedroom.jpeg", "kitchen.jpeg"],
       "bookNowUrl": "https://booking.com"
     },
@@ -42,9 +58,39 @@
           "label": "Hair dryer"
         }
       ],
-      "servicesUrl": "/alban-villa-website/en#servicesAndFacilities",
+      "servicesUrl": "/alban-villa-website/el#servicesAndFacilitiesRoom2",
       "roomSrc": ["bedroom.jpeg", "kitchen.jpeg"],
       "bookNowUrl": "https://booking.com"
+    }
+  ],
+  "facilities": [
+    {
+      "icon": "beach_access",
+      "label": "Beach 1km"
+    },
+    {
+      "icon": "smoking_rooms",
+      "label": "Tobacco Shop 50m"
+    },
+    {
+      "icon": "pool",
+      "label": "Swimming Pool 150m"
+    },
+    {
+      "icon": "storefront",
+      "label": "Store 25m"
+    },
+    {
+      "icon": "food_bank",
+      "label": "Restaurant 275m"
+    },
+    {
+      "icon": "food_bank",
+      "label": "Restaurant 275m"
+    },
+    {
+      "icon": "gps_fixed",
+      "label": "City Center 320m"
     }
   ]
 }

@@ -44,13 +44,17 @@ if (translations) {
             indexHtmlWithWebData = [];
 
             for (const wd of webData) {
-                indexHtmlWithWebData.push(addRooms(indexHtml, wd['rooms']));
+                let indexHtmlWithWebDataAdded = addRooms(indexHtml, wd['rooms']);
+                indexHtmlWithWebDataAdded = addServicesAndFacilities(indexHtmlWithWebDataAdded, wd['rooms'], wd['facilities']);
+
+                indexHtmlWithWebData.push(indexHtmlWithWebDataAdded);
             }
         } else {
-            indexHtmlWithWebData = addRooms(indexHtml, webData['rooms']);
-        }
+            let indexHtmlWithWebDataAdded = addRooms(indexHtml, webData['rooms']);
+            indexHtmlWithWebDataAdded = addServicesAndFacilities(indexHtmlWithWebDataAdded, webData['rooms'], webData['facilities']);
 
-        // console.log(indexHtmlWithWebData);
+            indexHtmlWithWebData = indexHtmlWithWebDataAdded;
+        }
 
         let translatedIndexHtml;
 
@@ -105,24 +109,20 @@ function getWebData(lang) {
     }
 }
 
-function translate(html, translations) {
-    if (!html) {
-        throw new Error('[translate]: The argument html must not be empty!');
+function translate(indexHtml, translations) {
+    if (!indexHtml) {
+        throw new Error('[translate]: The argument indexHtml must not be empty!');
     }
 
     if (!translations) {
         throw new Error('[translate]: The argument translations must not be empty!');
     }
 
-    if (typeof html !== 'string') {
-        throw new Error('[translate]: The argument html must be a string!');
-    }
-
     for (const key in translations) {
-        html = html.replaceAll(`{{${key}}}`, translations[key]);
+        indexHtml = indexHtml.replaceAll(`{{${key}}}`, translations[key]);
     }
 
-    return html;
+    return indexHtml;
 }
 
 function addRooms(indexHtml, rooms) {
@@ -165,17 +165,7 @@ function addRooms(indexHtml, rooms) {
                 room['services'].length &&
                 roomHtml.includes('{{WEB_DATA_ROOMS.services}}')
             ) {
-                let serviceItemsHtml = '';
-
-                for (const service of room['services']) {
-                    let serviceItemHtml = fs.readFileSync('service-item.html', 'utf8');
-
-                    serviceItemHtml = serviceItemHtml.replace(new RegExp('{{icon}}'), service['icon']);
-                    serviceItemHtml = serviceItemHtml.replace(new RegExp('{{label}}'), service['label']);
-                    serviceItemsHtml += serviceItemHtml;
-                }
-
-                roomHtml = roomHtml.replace(new RegExp('{{WEB_DATA_ROOMS.services}}'), serviceItemsHtml);
+                roomHtml = roomHtml.replace(new RegExp('{{WEB_DATA_ROOMS.services}}'), addItems(room['services']));
             }
 
             for (const key in room) {
@@ -185,8 +175,64 @@ function addRooms(indexHtml, rooms) {
             roomsHtml += roomHtml;
         }
 
-        return indexHtml.replace(new RegExp('{{WEB_DATA_ROOMS}}'), roomsHtml);
+        indexHtml = indexHtml.replace(new RegExp('{{WEB_DATA_ROOMS}}'), roomsHtml);
     }
 
     return indexHtml;
+}
+
+function addServicesAndFacilities(indexHtml, rooms, facilities) {
+    if (!indexHtml) {
+        throw new Error('[addRooms]: The argument indexHtml must not be empty!');
+    }
+
+    if (!rooms) {
+        throw new Error('[addRooms]: The argument rooms must not be empty!');
+    }
+
+    if (!facilities) {
+        throw new Error('[addRooms]: The argument facilities must not be empty!');
+    }
+
+    if (indexHtml.includes('{{WEB_DATA_SERVICES}}')) {
+        let servicesHtml = '';
+
+        for (const room of rooms) {
+            let serviceHtml = fs.readFileSync('service.html', 'utf8');
+
+            serviceHtml = serviceHtml.replace('{{id}}', room['id']);
+            serviceHtml = serviceHtml.replace('{{name}}', room['name']);
+
+            if (
+                room['services'].length &&
+                serviceHtml.includes('{{WEB_DATA_ROOMS.services}}')
+            ) {
+                serviceHtml = serviceHtml.replace('{{WEB_DATA_ROOMS.services}}', addItems(room['services']));
+            }
+
+            servicesHtml += serviceHtml;
+        }
+
+        indexHtml = indexHtml.replace('{{WEB_DATA_SERVICES}}', servicesHtml);
+    }
+
+    if (indexHtml.includes('{{WEB_DATA_FACILITIES}}')) {
+        indexHtml = indexHtml.replace(`{{WEB_DATA_FACILITIES}}`, addItems(facilities));
+    }
+
+    return indexHtml;
+}
+
+function addItems(items) {
+    let itemsHtml = '';
+
+    for (const item of items) {
+        let itemHtml = fs.readFileSync('item.html', 'utf8');
+
+        itemHtml = itemHtml.replace(new RegExp('{{icon}}'), item['icon']);
+        itemHtml = itemHtml.replace(new RegExp('{{label}}'), item['label']);
+        itemsHtml += itemHtml;
+    }
+
+    return itemsHtml;
 }
