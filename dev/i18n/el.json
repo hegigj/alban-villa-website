@@ -15,5 +15,7 @@
   "SERVICES_AND_FACILITIES.HEADER": "Υπηρεσίες & Εγκαταστάσεις",
   "SERVICES_AND_FACILITIES.LABELS.SERVICES": "Υπηρεσίες",
   "SERVICES_AND_FACILITIES.LABELS.FACILITIES": "Εγκαταστάσεις",
-  "CONTACT.HEADER": "Επικοινωνία"
+  "CONTACT.HEADER": "Επικοινωνία",
+  "FOOTER.RESERVED_RIGHTS": "All rights reserved",
+  "FOOTER.POWERED_BY": "Powered by"
 }

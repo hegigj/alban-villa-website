@@ -15,5 +15,7 @@
   "SERVICES_AND_FACILITIES.HEADER": "Services & Facilities",
   "SERVICES_AND_FACILITIES.LABELS.SERVICES": "Services",
   "SERVICES_AND_FACILITIES.LABELS.FACILITIES": "Facilities",
-  "CONTACT.HEADER": "Contact"
+  "CONTACT.HEADER": "Contact",
+  "FOOTER.RESERVED_RIGHTS": "All rights reserved",
+  "FOOTER.POWERED_BY": "Powered by"
 }
