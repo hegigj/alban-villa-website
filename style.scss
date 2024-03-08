@@ -1,0 +1,25 @@
+.label-section{
+  margin-bottom: .5rem;
+
+  > label {
+    font-weight: 500;
+  }
+}
+
+.content-section {
+  margin-bottom: .5rem;
+
+  > label {
+    font-weight: 500;
+    margin-bottom: .5rem;
+  }
+}
+
+.card {
+  border: none;
+  transition: 300ms;
+
+  &:hover {
+    box-shadow: 0 1px 10px -5px rgba(0, 0, 0, .5);
+  }
+}

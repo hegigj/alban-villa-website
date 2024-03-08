@@ -1,0 +1,38 @@
+<div class="col">
+    <article class="card">
+        <section class="card-img-top">
+            <div id="carouselRoom-{{id}}" class="carousel slide rounded-top">
+                <div class="carousel-inner rounded-top">
+                    {{WEB_DATA_ROOMS.roomSrc}}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselRoom-{{id}}" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselRoom-{{id}}" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <div class="card-body">
+            <h2 class="card-title">{{name}}</h2>
+            <section class="label-section">
+                <label>{{ROOMS.LABELS.CAPACITY}}: </label>
+                <span>{{capacity}}</span>
+            </section>
+            <section class="label-section">
+                <label>{{ROOMS.LABELS.ORIENTATION}}: </label>
+                <span>{{orientation}}</span>
+            </section>
+            <section class="content-section">
+                <label>{{ROOMS.LABELS.SERVICES}}</label>
+                <div class="row gy-2">
+                    {{WEB_DATA_ROOMS.services}}
+                </div>
+                <a href="{{servicesUrl}}">{{ROOMS.LABELS.MORE_SERVICES}}</a>
+            </section>
+            <a href="{{bookNowUrl}}" class="btn btn-primary" role="button">{{ROOMS.BUTTONS.BOOK_NOW}}</a>
+        </div>
+    </article>
+</div>

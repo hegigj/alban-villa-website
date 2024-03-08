@@ -1,0 +1,50 @@
+{
+  "rooms": [
+    {
+      "id": "Room1",
+      "name": "Room 1",
+      "capacity": "5 guests",
+      "orientation": "SE",
+      "services": [
+        {
+          "icon": "ac_unit",
+          "label": "AC"
+        }
+      ],
+      "servicesUrl": "/alban-villa-website/en#servicesAndFacilities",
+      "roomSrc": ["front.jpeg", "bedroom.jpeg", "kitchen.jpeg"],
+      "bookNowUrl": "https://booking.com"
+    },
+    {
+      "id": "Room2",
+      "name": "Room 2",
+      "capacity": "8 guests",
+      "orientation": "SW",
+      "services": [
+        {
+          "icon": "ac_unit",
+          "label": "AC"
+        },
+        {
+          "icon": "kitchen",
+          "label": "Kitchen"
+        },
+        {
+          "icon": "king_bed",
+          "label": "3 King-size Bed"
+        },
+        {
+          "icon": "single_bed",
+          "label": "2 Single Bed"
+        },
+        {
+          "icon": "dry",
+          "label": "Hair dryer"
+        }
+      ],
+      "servicesUrl": "/alban-villa-website/en#servicesAndFacilities",
+      "roomSrc": ["bedroom.jpeg", "kitchen.jpeg"],
+      "bookNowUrl": "https://booking.com"
+    }
+  ]
+}

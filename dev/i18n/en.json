@@ -7,6 +7,11 @@
   "ABOUT_US.HEADER": "About Us",
   "ABOUT_US.DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi autem commodi culpa dignissimos distinctio dolor ducimus in molestias necessitatibus, neque nesciunt non odit quae quaerat quibusdam sed sint voluptatibus!",
   "ROOMS.HEADER": "Rooms",
+  "ROOMS.LABELS.CAPACITY": "Capacity",
+  "ROOMS.LABELS.ORIENTATION": "Orientation",
+  "ROOMS.LABELS.SERVICES": "Services",
+  "ROOMS.LABELS.MORE_SERVICES": "more...",
+  "ROOMS.BUTTONS.BOOK_NOW": "Book Now",
   "SERVICES_AND_FACILITIES.HEADER": "Services & Facilities",
   "CONTACT.HEADER": "Contact"
 }

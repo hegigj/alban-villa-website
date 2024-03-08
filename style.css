@@ -1,0 +1,24 @@
+.label-section {
+  margin-bottom: 0.5rem;
+}
+.label-section > label {
+  font-weight: 500;
+}
+
+.content-section {
+  margin-bottom: 0.5rem;
+}
+.content-section > label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.card {
+  border: none;
+  transition: 300ms;
+}
+.card:hover {
+  box-shadow: 0 1px 10px -5px rgba(0, 0, 0, 0.5);
+}
+
+/*# sourceMappingURL=style.css.map */

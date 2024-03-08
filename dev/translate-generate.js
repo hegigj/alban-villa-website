@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const availableLang = ['en', 'el'];
 const defaultLang = 'en';
 
-let translateToLang, translations;
+let translateToLang, translations, webData;
 
 if (process.argv.length > 2) {
     const [,, lang] = process.argv;
@@ -19,12 +19,15 @@ if (process.argv.length > 2) {
 try {
     if (typeof translateToLang === 'string') {
         translations = getTranslation(translateToLang);
+        webData = getWebData(translateToLang);
     }
     if (typeof translateToLang === 'object' && translateToLang instanceof Array) {
         translations = [];
+        webData = [];
 
         for (const lang of translateToLang) {
             translations.push(getTranslation(lang));
+            webData.push(getWebData(lang));
         }
     }
 } catch (error) {
@@ -34,16 +37,31 @@ try {
 if (translations) {
     try {
         const indexHtml = fs.readFileSync('index.html', 'utf8');
+
+        let indexHtmlWithWebData;
+
+        if (webData instanceof Array) {
+            indexHtmlWithWebData = [];
+
+            for (const wd of webData) {
+                indexHtmlWithWebData.push(addRooms(indexHtml, wd['rooms']));
+            }
+        } else {
+            indexHtmlWithWebData = addRooms(indexHtml, webData['rooms']);
+        }
+
+        // console.log(indexHtmlWithWebData);
+
         let translatedIndexHtml;
 
         if (translations instanceof Array) {
             translatedIndexHtml = [];
 
-            for (const translation of translations) {
-                translatedIndexHtml.push(translate(indexHtml, translation));
+            for (let i = 0; i < translations.length; i++) {
+                translatedIndexHtml.push(translate(indexHtmlWithWebData[i], translations[i]));
             }
         } else {
-            translatedIndexHtml = translate(indexHtml, translations);
+            translatedIndexHtml = translate(indexHtmlWithWebData, translations);
         }
 
         if (
@@ -74,6 +92,19 @@ function getTranslation(lang) {
     }
 }
 
+function getWebData(lang) {
+    if (!lang) {
+        throw new Error('[getWebData]: The argument lang must not be empty!');
+    }
+
+    try {
+        const webData = fs.readFileSync(`web-data/web-data.${lang}.json`, 'utf8');
+        return JSON.parse(webData);
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
 function translate(html, translations) {
     if (!html) {
         throw new Error('[translate]: The argument html must not be empty!');
@@ -87,9 +118,75 @@ function translate(html, translations) {
         throw new Error('[translate]: The argument html must be a string!');
     }
 
-    for (const translationKey in translations) {
-        html = html.replace(new RegExp(`{{${translationKey}}}`), translations[translationKey]);
+    for (const key in translations) {
+        html = html.replaceAll(`{{${key}}}`, translations[key]);
     }
 
     return html;
+}
+
+function addRooms(indexHtml, rooms) {
+    if (!indexHtml) {
+        throw new Error('[addRooms]: The argument indexHtml must not be empty!');
+    }
+
+    if (!rooms) {
+        throw new Error('[addRooms]: The argument rooms must not be empty!');
+    }
+
+    if (indexHtml.includes('{{WEB_DATA_ROOMS}}')) {
+        let roomsHtml = '';
+
+        for (const room of rooms) {
+            let roomHtml = fs.readFileSync('room.html', 'utf8');
+
+            if (
+                room['roomSrc'].length &&
+                roomHtml.includes('{{WEB_DATA_ROOMS.roomSrc}}')
+            ) {
+                let carouselItemsHtml = '';
+
+                for (let i = 0; i < room['roomSrc'].length; i++) {
+                    let carouselItemHtml = fs.readFileSync('carousel-item.html', 'utf8');
+
+                    if (i === 0) {
+                        carouselItemHtml = carouselItemHtml.replace(new RegExp('{{isActive}}'), 'active');
+                    }
+
+                    carouselItemHtml = carouselItemHtml.replace(new RegExp('{{roomSrc}}'), room['roomSrc'][i]);
+                    carouselItemHtml = carouselItemHtml.replace(new RegExp('{{name}}'), room['name']);
+                    carouselItemsHtml += carouselItemHtml;
+                }
+
+                roomHtml = roomHtml.replace(new RegExp('{{WEB_DATA_ROOMS.roomSrc}}'), carouselItemsHtml);
+            }
+
+            if (
+                room['services'].length &&
+                roomHtml.includes('{{WEB_DATA_ROOMS.services}}')
+            ) {
+                let serviceItemsHtml = '';
+
+                for (const service of room['services']) {
+                    let serviceItemHtml = fs.readFileSync('service-item.html', 'utf8');
+
+                    serviceItemHtml = serviceItemHtml.replace(new RegExp('{{icon}}'), service['icon']);
+                    serviceItemHtml = serviceItemHtml.replace(new RegExp('{{label}}'), service['label']);
+                    serviceItemsHtml += serviceItemHtml;
+                }
+
+                roomHtml = roomHtml.replace(new RegExp('{{WEB_DATA_ROOMS.services}}'), serviceItemsHtml);
+            }
+
+            for (const key in room) {
+                roomHtml = roomHtml.replaceAll(`{{${key}}}`, room[key]);
+            }
+
+            roomsHtml += roomHtml;
+        }
+
+        return indexHtml.replace(new RegExp('{{WEB_DATA_ROOMS}}'), roomsHtml);
+    }
+
+    return indexHtml;
 }
