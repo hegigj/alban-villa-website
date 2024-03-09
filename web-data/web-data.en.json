@@ -27,7 +27,7 @@
           "label": "Baby Crib"
         }
       ],
-      "servicesUrl": "/en#servicesAndFacilitiesRoom1",
+      "servicesUrl": "/alban-villa-website/en#servicesAndFacilitiesRoom1",
       "roomSrc": ["front.jpeg", "bedroom.jpeg", "kitchen.jpeg"],
       "bookNowUrl": "https://booking.com"
     },
@@ -58,7 +58,7 @@
           "label": "Hair dryer"
         }
       ],
-      "servicesUrl": "/en#servicesAndFacilitiesRoom2",
+      "servicesUrl": "/alban-villa-website/en#servicesAndFacilitiesRoom2",
       "roomSrc": ["bedroom.jpeg", "kitchen.jpeg"],
       "bookNowUrl": "https://booking.com"
     }
