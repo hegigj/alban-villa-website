@@ -27,7 +27,7 @@
           "label": "Baby Crib"
         }
       ],
-      "servicesUrl": "/alban-villa-website/el#servicesAndFacilitiesRoom1",
+      "servicesUrl": "/alban-villa-website/en#servicesAndFacilitiesRoom1",
       "roomSrc": ["front.jpeg", "bedroom.jpeg", "kitchen.jpeg"],
       "bookNowUrl": "https://booking.com"
     },
@@ -58,7 +58,34 @@
           "label": "Hair dryer"
         }
       ],
-      "servicesUrl": "/alban-villa-website/el#servicesAndFacilitiesRoom2",
+      "servicesUrl": "/alban-villa-website/en#servicesAndFacilitiesRoom2",
+      "roomSrc": ["bedroom.jpeg", "kitchen.jpeg"],
+      "bookNowUrl": "https://booking.com"
+    },
+    {
+      "id": "Room3",
+      "name": "Room 3",
+      "capacity": "2 guests",
+      "orientation": "SW",
+      "services": [
+        {
+          "icon": "ac_unit",
+          "label": "AC"
+        },
+        {
+          "icon": "kitchen",
+          "label": "Kitchen"
+        },
+        {
+          "icon": "single_bed",
+          "label": "2 Single Bed"
+        },
+        {
+          "icon": "dry",
+          "label": "Hair dryer"
+        }
+      ],
+      "servicesUrl": "/alban-villa-website/en#servicesAndFacilitiesRoom2",
       "roomSrc": ["bedroom.jpeg", "kitchen.jpeg"],
       "bookNowUrl": "https://booking.com"
     }
@@ -92,5 +119,6 @@
       "icon": "gps_fixed",
       "label": "City Center 320m"
     }
-  ]
+  ],
+  "contact": {}
 }
