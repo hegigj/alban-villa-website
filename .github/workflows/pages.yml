@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+
       - name: Translate
         run: npm run translate
-
-      - uses: actions/checkout@v4
 
   deploy:
     needs: build
