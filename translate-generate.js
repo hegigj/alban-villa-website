@@ -62,9 +62,12 @@ if (translations) {
             translatedIndexHtml = [];
 
             for (let i = 0; i < translations.length; i++) {
+                indexHtmlWithWebData[i] = indexHtmlWithWebData[i].replaceAll('{{DIR_LANG}}', translateToLang[i]);
+
                 translatedIndexHtml.push(translate(indexHtmlWithWebData[i], translations[i]));
             }
         } else {
+            indexHtmlWithWebData = indexHtmlWithWebData.replaceAll('{{DIR_LANG}}', translateToLang);
             translatedIndexHtml = translate(indexHtmlWithWebData, translations);
         }
 
