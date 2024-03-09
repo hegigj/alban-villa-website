@@ -1,3 +1,4 @@
 RewriteEngine On
-RewriteCond %{HTTP_HOST} !hegigj\.github\.io$
-RewriteRule ^ https://hegigj.github.io/alban-villa-website/%{REQUEST_URI} [R=301,L]
+RewriteRule ^.*?$ alban-villa-website/en/index.php [L]
+RewriteRule ^en(/.*)?$ alban-villa-website/en/index.php [L]
+RewriteRule ^el(/.*)?$ alban-villa-website/el/index.php [L]
