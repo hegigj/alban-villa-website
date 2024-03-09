@@ -13,9 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          node_version: '20'
+      - uses: actions/checkout@v4
 
       - name: Translate
         run: npm run predeploy
