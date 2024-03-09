@@ -23,6 +23,8 @@ jobs:
       - name: Translate
         run: npm run translate
 
+      - uses: actions/checkout@v4
+
   deploy:
     needs: build
 
