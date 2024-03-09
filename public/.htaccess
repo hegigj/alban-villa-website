@@ -1,5 +1,3 @@
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
-# Rewrite all other URLs to register.php
-RewriteRule .* /en/index.html [L]
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^https://hegigj.github.io/alban-villa-website/[nc]
+RewriteRule ^(.*)$ http://www.https://hegigj.github.io/alban-villa-website//$1 [r=301,nc]
