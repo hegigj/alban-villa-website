@@ -4754,7 +4754,7 @@
    * --------------------------------------------------------------------------
    */
 
-  // js-docs-start allow-list
+  // js-public-start allow-list
   const ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
   const DefaultAllowlist = {
     // Global attributes allowed on any supplied element below.
@@ -4792,7 +4792,7 @@
     u: [],
     ul: []
   };
-  // js-docs-end allow-list
+  // js-public-end allow-list
 
   const uriAttributes = new Set(['background', 'cite', 'href', 'itemtype', 'longdesc', 'poster', 'src', 'xlink:href']);
 

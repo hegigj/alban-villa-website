@@ -73,10 +73,10 @@ if (translations) {
             translateToLang instanceof Array
         ) {
             for (let i = 0; i < translatedIndexHtml.length; i++) {
-                fs.writeFileSync(`docs/${translateToLang[i]}/index.html`, translatedIndexHtml[i]);
+                fs.writeFileSync(`public/${translateToLang[i]}/index.html`, translatedIndexHtml[i]);
             }
         } else {
-            fs.writeFileSync(`docs/${translateToLang}/index.html`, translatedIndexHtml);
+            fs.writeFileSync(`public/${translateToLang}/index.html`, translatedIndexHtml);
         }
     } catch (error) {
         console.error(error);
